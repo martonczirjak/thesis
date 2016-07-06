@@ -6,34 +6,21 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Spring MVC Form Handling</title>
+<title>Bejelentkezés</title>
 </head>
 <body>
 
-	<h2>User Register</h2>
+	<h2>Bejelentkezés</h2>
 	<form method="POST" action="">
 		<table>
-			<tr>
-				<td><label path="name">Név</label></td>
-				<td><input name="name" path="name" /></td>
-			</tr>
 			<tr>
 				<td><label path="username">Felhasználónév</label></td>
 				<td><input name="username" path="username" /></td>
 			</tr>
-			<tr>
-				<td><label path="age">Kor</label></td>
-				<td><input name="age" path="age" /></td>
-			</tr>
-
-			<tr>
-				<td><label path="email">Email</label></td>
-				<td><input name="email" path="email" /></td>
-			</tr>
-
+			
 			<tr>
 				<td><label path="password">Jelszó</label></td>
-				<td><input name="password" path="password" /></td>
+				<td><input name="password" type="password" path="password" /></td>
 			</tr>
 
 

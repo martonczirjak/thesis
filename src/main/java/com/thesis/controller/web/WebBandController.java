@@ -1,4 +1,4 @@
-package com.thesis.controller;
+package com.thesis.controller.web;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.thesis.modells.Band;
-import com.thesis.modells.User;
+import com.thesis.services.UserService;
 import com.thesis.services.impl.BandServiceImp;
-import com.thesis.services.impl.UserSErviceImp;
 
 @Controller
-public class ViewController {
+@RequestMapping(value="/bands")
+public class WebBandController {
 
 	@Autowired
-	UserSErviceImp userService;
+	UserService userService;
 	
 	@Autowired
 	BandServiceImp bandService;
@@ -30,42 +30,22 @@ public class ViewController {
 	// map.put("message", "alma");
 	// return new ModelAndView("welcome", map);
 	// }
-
-	@RequestMapping(method = RequestMethod.POST, value = "/userregister")
-	public String submitForm(@ModelAttribute User user, Model model) {
-		userService.regUser(user);
-		model.addAttribute("user", user);
-		return "result";
-	}
-
-	@RequestMapping(method = RequestMethod.GET, value = "/userregister")
-	public String regUser(Model model) {
-		return "user_reg";
-	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/bandregister")
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/register")
 	public String submitForm(@ModelAttribute Band band, Model model) {
 		bandService.regBand(band);
 		model.addAttribute("band", band);
 		return "result";
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/bandregister")
+	@RequestMapping(method = RequestMethod.GET, value = "/register")
 	public String regBand(Model model) {
 		return "band_reg";
 	}
 	
 	
-	
-
-	@RequestMapping(method = RequestMethod.GET, value = "/users")
-	public String listUsers(@ModelAttribute User user, Model model) {
-		List<User> users = userService.getUsers();
-		model.addAttribute("users", (ArrayList<User>) users);
-		return "list_users";
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/bands")
+	@RequestMapping(method = RequestMethod.GET)
 	public String listBands(@ModelAttribute Band band, Model model) {
 		List<Band> bands = bandService.getBands();
 		model.addAttribute("bands", (ArrayList<Band>) bands);

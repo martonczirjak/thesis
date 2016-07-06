@@ -1,4 +1,4 @@
-package com.thesis.controller;
+package com.thesis.controller.api;
 
 import java.util.List;
 
@@ -41,6 +41,8 @@ public class UserController {
 	public void delUser(@PathVariable("userId") Long userId) {
 		 us.delUser(userId);
 	}
+	
+	
 	
 
 }
