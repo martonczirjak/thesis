@@ -30,7 +30,7 @@ public class WebUserController {
 	// Map<String, String> map = new HashMap<>();
 	// map.put("message", "alma");
 	// return new ModelAndView("welcome", map);
-	// }
+	// }	
 
 	@RequestMapping(method = RequestMethod.POST, value = "/register")
 	public String submitForm(@ModelAttribute User user, Model model) {
